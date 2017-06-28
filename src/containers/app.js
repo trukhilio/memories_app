@@ -3,8 +3,13 @@ import { connect } from 'react-redux';
 
 class App extends Component {
     render(){
+        const { name } = this.props.user;
+        const { year, photos } = this.props.page;
         return(
-            <div> Hello , {this.props.user}!
+            <div> Hello , { name }!
+                <p>
+                    You have {photos.length} photos for { year } year
+                </p>
             </div>
         )
     }
@@ -12,7 +17,8 @@ class App extends Component {
 
 function mapStateToProps (state) {
     return {
-        user: state.user
+        user: state.user,
+        page: state.page
     }
 }
 
