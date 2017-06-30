@@ -6,9 +6,13 @@ export default class User extends Component {
         let template;
         if (name){
             template =
-                <p>
-                    Welcome, {name}!
-                </p>
+                <div>
+                    <p>
+                        Welcome, {name}!
+                    </p>
+                    <button onClick={this.props.handleLogout}>Say goodbye!</button>
+                </div>
+
         } else {
             template = <button onClick={this.props.handleLogin}>Enter</button>
         }
@@ -24,5 +28,6 @@ export default class User extends Component {
 User.propTypes = {
     name: PropTypes.string.isRequired,
     handleLogin: PropTypes.func.isRequired,
+    handleLogout: PropTypes.func.isRequired,
     error: PropTypes.string.isRequired
 };
