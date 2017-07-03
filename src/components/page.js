@@ -1,29 +1,31 @@
 import React, { PropTypes, Component } from 'react';
 
 export default class Page extends Component {
-    onYearBtnClick(e) {
+    onBtnClick(e) {
         this.props.getPhotos(+e.target.innerText)
     }
     render(){
-        const { year, photos, fetching } = this.props;
+        const {  photos, fetching, error } = this.props;
         return (
             <div>
-                <button onClick={::this.onYearBtnClick}>2017</button>{' '}
-                <button onClick={::this.onYearBtnClick}>2016</button>{' '}
-                <button onClick={::this.onYearBtnClick}>2015</button>{' '}
-                <button onClick={::this.onYearBtnClick}>2014</button>
+                <p>
+                     <button onClick={::this.onBtnClick}>Get photo</button>
+                </p>
                 <h3>
-                    {year} year
+                    You have [{photos.length}] photos
                 </h3>
+                { error ? <p> Oops, download is failed... </p> : '' }
                 {
                     fetching ?
                         <p>
                             Downloading...
                         </p>
                         :
-                        <p>
-                            You have {photos.length} photos
-                        </p>
+                        photos.map((entry, index) =>
+                            <div key={index}>
+                                <img src={entry.source} width={entry.width} height={entry.height}/>
+                            </div>
+                        )
                 }
 
             </div>
@@ -33,7 +35,7 @@ export default class Page extends Component {
 
 
 Page.propTypes = {
-    year: PropTypes.number.isRequired,
     photos: PropTypes.array.isRequired,
-    getPhotos: PropTypes.func.isRequired
+    getPhotos: PropTypes.func.isRequired,
+    error: PropTypes.string.isRequired
 };

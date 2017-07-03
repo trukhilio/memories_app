@@ -41,10 +41,10 @@ export function handleLogout (){
         dispatch({
             type: LOGOUT_REQUEST
         });
-        FB.logout(function(response) {
-        });
         FB.getLoginStatus(function(response) {
-            if (response.status ='unknown'){
+            if (response.status === 'connected'){
+                FB.logout(function(response) {
+                });
                 username ='';
                 dispatch({
                     type: LOGOUT_SUCCESS,
@@ -54,7 +54,7 @@ export function handleLogout (){
                 dispatch({
                     type: LOGOUT_FAIL,
                     error: true,
-                    payload: new Error('Something os wrong, cannot out from app')
+                    payload: new Error('Something is wrong, maybe you are out from app earlier')
                 })
             }
         });
