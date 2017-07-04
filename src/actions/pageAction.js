@@ -14,7 +14,7 @@ export function getPhotos(dispatch) {
         FB.getLoginStatus(function(response) {
             if (response.status === 'connected'){
                 FB.api(
-                    'me?fields=albums{photos{source,width,height}}',
+                    'me?fields=albums{photos{source}}',
                     function (response) {
                         if (response && !response.error) {
                             let albums = response.albums.data.map((item) =>

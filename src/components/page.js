@@ -12,7 +12,7 @@ export default class Page extends Component {
                      <button onClick={::this.onBtnClick}>Get photo</button>
                 </p>
                 <h3>
-                    You have [{photos.length}] photos
+                    You have {photos.length} photos
                 </h3>
                 { error ? <p> Oops, download is failed... </p> : '' }
                 {
@@ -23,7 +23,10 @@ export default class Page extends Component {
                         :
                         photos.map((entry, index) =>
                             <div key={index}>
-                                <img src={entry.source} width={entry.width} height={entry.height}/>
+                                <img src={entry.source}
+                                     width="300"
+                                     height="auto"
+                                />
                             </div>
                         )
                 }

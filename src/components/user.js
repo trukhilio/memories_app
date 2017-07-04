@@ -2,19 +2,25 @@ import React, { PropTypes, Component } from 'react';
 
 export default class User extends Component {
     render(){
-        const { name, error } = this.props;
+        const { content, error } = this.props;
         let template;
-        if (name){
+        if (content){
             template =
                 <div>
                     <p>
-                        Welcome, {name}!
+                        Welcome, {content.username}!
                     </p>
+                    <img src={content.avatar} />
                     <button onClick={this.props.handleLogout}>Say goodbye!</button>
                 </div>
-
         } else {
-            template = <button onClick={this.props.handleLogin}>Enter</button>
+            template =
+                <div>
+                    <p>
+                        Hello, stranger! Welcome to memories app, press Login button for enter the app. App is using facebook account.
+                    </p>
+                    <button onClick={this.props.handleLogin}>Login</button>
+                </div>
         }
         return (
             <div>
@@ -26,7 +32,7 @@ export default class User extends Component {
 }
 
 User.propTypes = {
-    name: PropTypes.string.isRequired,
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleLogin: PropTypes.func.isRequired,
     handleLogout: PropTypes.func.isRequired,
     error: PropTypes.string.isRequired

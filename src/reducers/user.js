@@ -6,7 +6,7 @@ import {
 } from '../constants/user';
 
 const initialState = {
-    name: '',
+    content: '',
     error: ''
 };
 
@@ -14,11 +14,11 @@ function user(state = initialState, action){
 
     switch(action.type) {
         case LOGIN_SUCCESS:
-            return { ...state, name: action.payload, error: ''};
+            return { ...state, content: action.payload, error: ''};
         case LOGIN_FAIL:
             return { ...state, error: action.payload.message};
         case LOGOUT_SUCCESS:
-            return { ...state, name: ''};
+            return { ...state, content: ''};
         case LOGOUT_FAIL:
             return { ...state, error: action.payload.message};
     }

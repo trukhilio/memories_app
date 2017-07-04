@@ -12,10 +12,17 @@ class App extends Component {
         const { user, page } = this.props;
         const { getPhotos } = this.props.pageActions;
         const { handleLogin, handleLogout  } = this.props.userActions;
+
+        let pageComp;
+        if (user.content){
+            pageComp = <Page photos={page.photos} getPhotos={getPhotos} fetching={page.fetching} error={page.error}/>
+        } else {
+            pageComp = ''
+        }
         return(
             <div>
-                <User name={user.name} handleLogin={handleLogin} handleLogout={handleLogout} error={user.error}/>
-                <Page photos={page.photos} getPhotos={getPhotos} fetching={page.fetching} error={page.error}/>
+                <User content={user.content} handleLogin={handleLogin} handleLogout={handleLogout} error={user.error} />
+                {pageComp}
             </div>
         )
     }

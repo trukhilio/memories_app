@@ -8,6 +8,7 @@ import {
 } from '../constants/user';
 
 let username;
+let avatar;
 
 export function handleLogin(){
     return function(dispatch){
@@ -17,11 +18,13 @@ export function handleLogin(){
         FB.login(function(response) {
             if (response.authResponse) {
 
-                FB.api('/me', function(response) {
+                FB.api('/me?fields=name,picture', function(response) {
+                    console.log(response);
                     username = response.name;
+                    avatar = response.picture.data.url;
                     dispatch({
                                 type: LOGIN_SUCCESS,
-                                payload: username
+                                payload: {username, avatar}
                             })
                 });
             } else {
@@ -42,13 +45,14 @@ export function handleLogout (){
             type: LOGOUT_REQUEST
         });
         FB.getLoginStatus(function(response) {
-            if (response.status === 'connected'){
+            if (response.status !== 'unknown'){
                 FB.logout(function(response) {
                 });
-                username ='';
+                username = '';
+                avatar = '';
                 dispatch({
                     type: LOGOUT_SUCCESS,
-                    payload: username
+                    payload: {username, avatar}
                 })
             } else {
                 dispatch({
