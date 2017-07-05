@@ -4,12 +4,19 @@ export default class Page extends Component {
     onBtnClick(e) {
         this.props.getPhotos(+e.target.innerText)
     }
+
     render(){
         const {  photos, fetching, error } = this.props;
+        let getButton;
+        if (photos.length === 0){
+            getButton = <button onClick={::this.onBtnClick}>Get photo</button>;
+        } else {
+            getButton = '';
+        }
         return (
             <div>
                 <p>
-                     <button onClick={::this.onBtnClick}>Get photo</button>
+                    {getButton}
                 </p>
                 <h3>
                     You have {photos.length} photos

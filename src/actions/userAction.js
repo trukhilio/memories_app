@@ -19,7 +19,6 @@ export function handleLogin(){
             if (response.authResponse) {
 
                 FB.api('/me?fields=name,picture', function(response) {
-                    console.log(response);
                     username = response.name;
                     avatar = response.picture.data.url;
                     dispatch({

@@ -14,12 +14,14 @@ export function getPhotos(dispatch) {
         FB.getLoginStatus(function(response) {
             if (response.status === 'connected'){
                 FB.api(
-                    'me?fields=albums{photos{source}}',
+                    'me?fields=albums{photos{created_time,source}},photos{created_time,source,tags}',
                     function (response) {
                         if (response && !response.error) {
+                            console.log(response);
                             let albums = response.albums.data.map((item) =>
                                 item.photos.data);
                             let albumUnidade = albums.map((item) => item.map((item) => photosArr.push(item)));
+                            let taggedPhotos = response.photos.data.map((item) => photosArr.push(item));
                             dispatch({
                                 type: GET_PHOTOS_SUCCESS,
                                 payload: photosArr
