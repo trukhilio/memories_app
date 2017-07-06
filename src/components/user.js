@@ -1,5 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 
+import Button from './button';
+
 export default class User extends Component {
     render(){
         const { content, error } = this.props;
@@ -11,7 +13,7 @@ export default class User extends Component {
                         Welcome, {content.username}!
                     </p>
                     <img src={content.avatar} />
-                    <button onClick={this.props.handleLogout}>Say goodbye!</button>
+                    <Button title="Say goodbye!" onClick={this.props.handleLogout}/>
                 </div>
         } else {
             template =
@@ -19,7 +21,7 @@ export default class User extends Component {
                     <p>
                         Hello, stranger! Welcome to memories app, press Login button for enter the app. App is using facebook account.
                     </p>
-                    <button onClick={this.props.handleLogin}>Login</button>
+                    <Button title="Login" onClick={this.props.handleLogin}/>
                 </div>
         }
         return (

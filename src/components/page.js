@@ -1,5 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 
+import Button from './button';
+
 export default class Page extends Component {
     onBtnClick(e) {
         this.props.getPhotos(+e.target.innerText)
@@ -9,7 +11,7 @@ export default class Page extends Component {
         const {  photos, fetching, error } = this.props;
         let getButton;
         if (photos.length === 0){
-            getButton = <button onClick={::this.onBtnClick}>Get photo</button>;
+            getButton = <Button title="Get photo" onClick={::this.onBtnClick}/>;
         } else {
             getButton = '';
         }
