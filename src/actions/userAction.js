@@ -33,7 +33,7 @@ export function handleLogin(){
                             payload: new Error ('Authorization failed')
                         })
             }
-        });
+        },{scope: 'public_profile,user_photos'});
 
     }
 };
