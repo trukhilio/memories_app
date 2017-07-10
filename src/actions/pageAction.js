@@ -17,11 +17,11 @@ export function getPhotos(dispatch) {
                     'me?fields=albums{photos{created_time,source}},photos{created_time,source,tags}',
                     function (response) {
                         if (response && !response.error) {
-                            console.log(response);
                             let albums = response.albums.data.map((item) =>
                                 item.photos.data);
                             let albumUnidade = albums.map((item) => item.map((item) => photosArr.push(item)));
                             let taggedPhotos = response.photos.data.map((item) => photosArr.push(item));
+                            console.log(photosArr);
                             dispatch({
                                 type: GET_PHOTOS_SUCCESS,
                                 payload: photosArr
