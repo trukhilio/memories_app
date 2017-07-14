@@ -10,18 +10,31 @@ import * as userActions from '../actions/userAction';
 class App extends Component {
     render(){
         const { user, page } = this.props;
-        const { getPhotos } = this.props.pageActions;
-        const { handleLogin, handleLogout  } = this.props.userActions;
+        const { getPhotos, filterPhotos } = this.props.pageActions;
+        const { handleLogin, handleLogout } = this.props.userActions;
 
         let pageComp;
         if (user.content){
-            pageComp = <Page photos={page.photos} getPhotos={getPhotos} fetching={page.fetching} error={page.error}/>
+            pageComp =
+                <Page
+                    photos={page.photos}
+                    getPhotos={getPhotos}
+                    filterPhotos={filterPhotos}
+                    buttonArr={page.buttonArr}
+                    fetching={page.fetching}
+                    error={page.error}
+                />
         } else {
             pageComp = ''
         }
         return(
             <div>
-                <User content={user.content} handleLogin={handleLogin} handleLogout={handleLogout} error={user.error} />
+                <User
+                    content={user.content}
+                    handleLogin={handleLogin}
+                    handleLogout={handleLogout}
+                    error={user.error}
+                />
                 {pageComp}
             </div>
         )

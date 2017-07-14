@@ -3,32 +3,23 @@ import React, { PropTypes, Component } from 'react';
 import Button from './button';
 
 export default class Page extends Component {
-    onBtnClick(e) {
-        this.props.getPhotos(+e.target.innerText)
-    }
-
-    buttonYears = () =>  {
-        const getAllYears = this.props.photos.map((item) => Number(item.created_time.substring(0,4)));
-        let result = Array.from(new Set(getAllYears));
-        let buttonElem = result.map((item,index) => <Button key={index} title={item}/>);
-        return buttonElem;
-    };
 
     render(){
-        const {  photos, fetching, error } = this.props;
+        const { photos, fetching, error, getPhotos, filterPhotos, buttonArr } = this.props;
         let getButton;
-        let allPhotos;
+        let countPhotos;
         if (!photos.length){
-            getButton = <Button title="Get photo" onClick={::this.onBtnClick}/>;
-            allPhotos = '';
+            getButton = <Button title="Get photo" onClick={getPhotos}/>;
+            countPhotos = '';
         } else {
             getButton = '';
-            allPhotos = <h3>You have {photos.length} photos </h3>
+            countPhotos = <h3>You have {photos.length} photos </h3>
         }
         const photoframe =
             <div>
-                {allPhotos}
-                {::this.buttonYears()}
+                {countPhotos}
+                {buttonArr.map((item, index) =>
+                    <Button key={index} title={item} onClick={e => {e.preventDefault();filterPhotos(item)}}/>)}
                 {photos.map((entry, index) =>
                 <div key={index}>
                     <img src={entry.source}
@@ -44,7 +35,6 @@ export default class Page extends Component {
                 </p>
                 { error ? <p> Oops, download is failed... </p> : '' }
                 { fetching ? <p> Downloading...</p> : photoframe }
-
             </div>
         )
     }
@@ -53,6 +43,8 @@ export default class Page extends Component {
 
 Page.propTypes = {
     photos: PropTypes.array.isRequired,
+    buttonArr: PropTypes.array.isRequired,
     getPhotos: PropTypes.func.isRequired,
+    filterPhotos: PropTypes.func.isRequired,
     error: PropTypes.string.isRequired
 };
