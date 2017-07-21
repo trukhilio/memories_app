@@ -34,8 +34,12 @@ module.exports = {
                 plugins: ['transform-runtime'],
             },
             {
-                test:   /\.scss$/,
-                loader: "style-loader!css-loader!postcss-loader"
+                test: /\.scss$/,
+                loaders: [
+                    'isomorphic-style-loader',
+                    'css-loader?modules&localIdentName=[name]_[local]_[hash:base64:3]',
+                    'postcss-loader'
+                ]
             }
         ]
     },
