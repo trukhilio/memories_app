@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 
-import Button from './button';
+import Button from '../button/index';
+import Image from '../image/index';
 
 export default class Page extends Component {
 
@@ -21,12 +22,9 @@ export default class Page extends Component {
                 {buttonArr.map((item, index) =>
                     <Button key={index} title={item} onClick={e => {e.preventDefault();filterPhotos(item)}}/>)}
                 {photos.map((entry, index) =>
-                <div key={index}>
-                    <img src={entry.source}
-                         width="300"
-                         height="auto"
-                    />
-                </div>)}
+                    <div key={index}>
+                        <Image src={entry.source} />
+                    </div>)}
             </div>;
         return (
             <div>
