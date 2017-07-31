@@ -2,14 +2,12 @@ import React, { PropTypes, Component } from 'react';
 
 import Button from '../button/index';
 import Image from '../image/index';
+import Slider from '../slider/index';
 import s from './styles.scss';
-
-const pathToImages = require.context('../../picture/slider', true);
 
 export default class User extends Component {
     render(){
         const { content, error } = this.props;
-        const srcImage = pathToImages.keys().map(pathToImages);
         let template;
         if (content){
             template =
@@ -23,10 +21,7 @@ export default class User extends Component {
         } else {
             template =
                 <div>
-                    {srcImage.map((item, index)=>
-                        <div key={index}>
-                            <Image src={item} />
-                        </div>)}
+                    <Slider/>
                     <h2 className={s.user__appName}>
                         memories
                     </h2>

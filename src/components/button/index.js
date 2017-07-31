@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './styles.scss';
 
-export class Button extends Component{
+class Button extends Component{
     render(){
         return(
             <button
