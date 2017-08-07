@@ -1,5 +1,18 @@
-body {
+@font-face{
+    font-family: Nunito-Regular;
+    src: url(../fonts/Nunito-Regular.ttf);
+}
+
+@font-face{
+    font-family: Nunito-Bold;
+    src: url(../fonts/Nunito-Bold.ttf);
+}
+
+body, div, h1, h2, h3, p {
     margin: 0 auto;
+}
+body{
+    font-family: Nunito-Regular, sans-serif;
 }
 
 

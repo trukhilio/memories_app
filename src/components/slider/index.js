@@ -9,8 +9,8 @@ const pathToImages = require.context('../../picture/slider', true);
 const srcImage = pathToImages.keys().map(pathToImages);
 
 class Slider extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             sourcePath: srcImage,
@@ -28,7 +28,7 @@ class Slider extends Component {
         else {
             this.setState({current: 0})
         }
-        this.timeoutFunc = setTimeout(this.nextSlide, 3000);
+        this.timeoutFunc = setTimeout(this.nextSlide, 5000);
     }
     clearTime = () => {
         clearTimeout(this.timeoutFunc);

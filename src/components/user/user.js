@@ -1,11 +1,13 @@
 import React, { PropTypes, Component } from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import Button from '../button/index';
 import Image from '../image/index';
 import Slider from '../slider/index';
 import s from './styles.scss';
+const srcLogo = require('../../picture/logo.png');
 
-export default class User extends Component {
+class User extends Component {
     render(){
         const { content, error } = this.props;
         let template;
@@ -20,16 +22,22 @@ export default class User extends Component {
                 </div>
         } else {
             template =
-                <div>
-                    <Slider/>
-                    <h2 className={s.user__appName}>
-                        memories
-                    </h2>
-                    <p>
-                        Hello my friend! Welcome to memories app, press Login button for enter the app. App is using facebook account.
-                    </p>
-                    <Button title="Login via Facebook" onClick={this.props.handleLogin}/>
-                </div>
+                    <div classname={s.contain}>
+                        <div className={s.box}>
+                            <Slider/>
+                            <h1 className={s.appName}>
+                                memories
+                            </h1>
+                        </div>
+                        <div className={s.box}>
+                            <p className={s.text}>
+                                Hello and welcome to memories app!
+                                <br/>
+                                Refresh your happy and unforgettable memories with your social media photos!
+                            </p>
+                            <Button className={s.login} title="Login via Facebook" onClick={this.props.handleLogin}/>
+                        </div>
+                    </div>
         }
         return (
             <div>
@@ -39,6 +47,8 @@ export default class User extends Component {
         )
     }
 }
+
+export default withStyles(s)(User)
 
 User.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
