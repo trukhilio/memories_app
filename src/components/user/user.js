@@ -22,7 +22,7 @@ class User extends Component {
                 </div>
         } else {
             template =
-                    <div classname={s.contain}>
+                    <div className={s.contain}>
                         <div className={s.box}>
                             <Slider/>
                             <h1 className={s.appName}>
