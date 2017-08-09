@@ -5,7 +5,6 @@ import Button from '../button/index';
 import Image from '../image/index';
 import Slider from '../slider/index';
 import s from './styles.scss';
-const srcLogo = require('../../picture/logo.png');
 
 class User extends Component {
     render(){
@@ -13,12 +12,18 @@ class User extends Component {
         let template;
         if (content){
             template =
-                <div>
-                    <p>
-                        Welcome, {content.username}!
-                    </p>
-                    <Image src={content.avatar} />
-                    <Button title="Say goodbye!" onClick={this.props.handleLogout}/>
+                <div className={s.header}>
+                    <h1 className={s.appNameWhite}>
+                        memories
+                    </h1>
+                    <hr width="80%"/>
+                    <div className={s.headBox}>
+                        <p className={s.welcome}>
+                            Hi, {content.username}!
+                        </p>
+                        <Image src={content.avatar} />
+                    </div>
+                    <Button className={s.logout} title="Logout" onClick={this.props.handleLogout}/>
                 </div>
         } else {
             template =

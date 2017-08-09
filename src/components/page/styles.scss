@@ -1,0 +1,61 @@
+.photo{
+  width: 100px;
+  height: auto;
+}
+.boxFlex, .count, .boxYear, .boxPhotos {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.photoText{
+  font-family: Nunito-Regular;
+  margin: 10px 0;
+  font-size: 1.5em;
+}
+
+.buttonPhoto{
+  padding: 10px 25px;
+  background-color: #ffffff;
+  border-radius: 25px 10px;
+  border: #6a6a6a 3px solid;
+
+  &:hover{
+    background-color: #bababa;
+  }
+}
+
+.count{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: #6a6a6a 3px solid;
+}
+.photosito{
+  width: 80%;
+  max-width: 400px;
+}
+
+.boxYear{
+  flex-direction: column;
+}
+
+.boxPhotos{
+  flex-flow: row wrap;
+}
+
+.yearButton{
+  font-family: Nunito-Regular;
+  padding: 12px 10px;
+  background-color: #7d0073;
+  color: #ffffff;
+  border-radius: 10px;
+  width: 80%;
+  &:hover{
+    background-color: #6f29a0;
+    cursor: pointer;
+  }
+  &:active{
+    background-color: #617eab;
+  }
+}
