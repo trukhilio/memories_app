@@ -17,13 +17,15 @@ class User extends Component {
                         memories
                     </h1>
                     <hr width="80%"/>
-                    <div className={s.headBox}>
-                        <p className={s.welcome}>
-                            Hi, {content.username}!
-                        </p>
-                        <Image src={content.avatar} />
+                    <div className={s.headContent}>
+                        <div className={s.headBox}>
+                            <p className={s.welcome}>
+                                Hi, {content.username}!
+                            </p>
+                            <Image src={content.avatar} />
+                        </div>
+                        <Button className={s.logout} title="Logout" onClick={this.props.handleLogout}/>
                     </div>
-                    <Button className={s.logout} title="Logout" onClick={this.props.handleLogout}/>
                 </div>
         } else {
             template =

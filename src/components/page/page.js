@@ -30,10 +30,16 @@ class Page extends Component {
         } else {
             getButton = '';
             countPhotos =
-                <div className={s.boxFlex}>
+                <div className={s.boxCount}>
+                    <h1 className={s.countText}>
+                        ph
+                    </h1>
                     <h3 className={s.count}>
                         {photos.length}
                     </h3>
+                    <h1 className={s.countText}>
+                        to
+                    </h1>
                 </div>
         }
         const photoframe =
@@ -41,7 +47,11 @@ class Page extends Component {
                 {countPhotos}
                 <div className={s.boxYear}>
                     {buttonArr.map((item, index) =>
-                        <Button className={s.yearButton} key={index} title={item} onClick={e => {e.preventDefault();filterPhotos(item)}}/>)}
+                        <Button
+                            className={s.yearButton}
+                            key={index}
+                            title={<span>{item}</span>}
+                            onClick={e => {e.preventDefault();filterPhotos(item)}}/>)}
                 </div>
                 <div className={s.boxPhotos}>
                     {photos.map((entry, index) =>
@@ -50,10 +60,16 @@ class Page extends Component {
 
             </div>;
         return (
-            <div>
+            <div className={s.boxMain}>
                 {getButton}
                 { error ? <p> Oops, download is failed... </p> : '' }
-                { fetching ? <p> Downloading...</p> : photoframe }
+                { fetching ?
+                    <div className={s.spinner}>
+                        <div className={s.bounce1}></div>
+                        <div className={s.bounce2}></div>
+                        <div className={s.bounce3}></div>
+                    </div>
+                    : photoframe }
             </div>
         )
     }

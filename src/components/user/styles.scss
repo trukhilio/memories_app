@@ -1,4 +1,4 @@
-.header,.headBox,.box{
+.header,.headBox,.box, .headContent{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
   border-radius: 15px 5px;
 }
 
-.header,.box{
+.header,.box, .headContent{
   flex-direction: column;
 }
 .welcome{
@@ -76,11 +76,12 @@
 }
 
 .logout{
-  margin: 5%;
+  margin: 5% 0;
   padding: 10px;
   font-size: 0.8em;
   background-color: #7d0073;
-  width: 80%;
+  width: 100%;
+  height: 50px;
 
   &:hover{
     background-color: #6f29a0;
@@ -111,6 +112,10 @@
     position: absolute;
     margin: 0;
     top: 75%;
+  }
+  .headContent{
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
