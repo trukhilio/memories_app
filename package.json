@@ -26,11 +26,13 @@
     "file-loader": "0.11.2",
     "isomorphic-style-loader": "3.0.0",
     "node-sass": "4.5.3",
+    "npm-install-webpack-plugin": "2.0.2",
     "postcss-loader": "0.8.0",
     "precss": "1.4.0",
     "react-hot-loader": "1.3.0",
     "sass-loader": "6.0.6",
     "style-loader": "0.13.0",
+    "webpack": "1.12.12",
     "webpack-dev-middleware": "1.5.1",
     "webpack-hot-middleware": "2.6.4"
   },
@@ -38,13 +40,11 @@
     "babel-polyfill": "6.3.14",
     "babel-runtime": "6.3.19",
     "express": "4.13.4",
-    "npm-install-webpack-plugin": "2.0.2",
     "react": "0.14.9",
     "react-dom": "0.14.9",
     "react-redux": "4.0.6",
     "redux": "3.3.1",
     "redux-logger": "3.0.6",
-    "redux-thunk": "2.2.0",
-    "webpack": "1.12.12"
+    "redux-thunk": "2.2.0"
   }
 }
