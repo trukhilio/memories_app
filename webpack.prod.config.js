@@ -5,22 +5,28 @@ let autoprefixer = require('autoprefixer');
 let precss = require('precss');
 
 module.exports = {
-    devtool: null,
+    devtool: 'source-map',
     entry: [
         './src/index'
     ],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'static'),
         filename: 'bundle.js',
         publicPath: '/static/'
     },
     plugins: [
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
-            mangle: {except: ['$', 'exports', 'require', 'app']},
-            compress: {warnings: false},
-            sourceMap: false
+            minimize: true,
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production'),
+                'API_HOST': 'https://memoriesapp.herokuapp.com'
+            }
         })
     ],
     module: {
