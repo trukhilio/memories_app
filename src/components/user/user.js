@@ -16,7 +16,6 @@ class User extends Component {
                     <h1 className={s.appNameWhite}>
                         memories
                     </h1>
-                    <hr width="80%"/>
                     <div className={s.headContent}>
                         <div className={s.headBox}>
                             <p className={s.welcome}>

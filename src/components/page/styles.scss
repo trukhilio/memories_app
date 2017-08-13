@@ -2,19 +2,22 @@
   width: 100px;
   height: auto;
 }
+
 .boxFlex, .count, .boxYear, .boxPhotos, .boxCount, .boxMain {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
 }
-.boxMain{
+.boxMain, .boxYear, .boxPhotos{
   flex-direction: column;
 }
+
 .photoText{
   font-family: Nunito-Regular;
   margin: 10px 0;
   font-size: 1.5em;
+  color: #6a6a6a;
 }
 
 .buttonPhoto{
@@ -37,6 +40,7 @@
   width: 50px;
   height: 50px;
   border: #6a6a6a 3px solid;
+  color: #6a6a6a;
 }
 
 .countText{
@@ -48,18 +52,9 @@
 
 .photosito{
   width: 80%;
-  max-width: 400px;
-  border: #6f29a0 1px solid;
+  max-width: 355px;
   border-radius: 30px 10px;
   margin-bottom: 5%;
-}
-
-.boxYear{
-  flex-direction: column;
-}
-
-.boxPhotos{
-  flex-flow: row wrap;
 }
 
 .yearButton{
@@ -113,7 +108,6 @@
   width: 18px;
   height: 18px;
   background-color: #333;
-
   border-radius: 100%;
   display: inline-block;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
@@ -127,11 +121,6 @@
   animation-delay: -0.16s;
 }
 
-@-webkit-keyframes sk-bouncedelay {
-  0%, 80%, 100% { -webkit-transform: scale(0) }
-  40% { -webkit-transform: scale(1.0) }
-}
-
 @keyframes sk-bouncedelay {
   0%, 80%, 100% {
     transform: scale(0);
@@ -141,5 +130,54 @@
 }
 
 @media screen and (min-width: 640px){
+  .count{
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+  }
+  .countText{
+    font-size: 3em;
+    letter-spacing: 10px;
+    margin: 0 2%;
+  }
+  .boxPhotos{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    column-count: 2;
+    width: 80%;
+  }
+  .photosito{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
 
+@media screen and (min-width: 768px){
+  .count{
+    width: 75px;
+    height: 75px;
+    font-size: 1.8em;
+  }
+  .countText{
+    font-size: 4em;
+    letter-spacing: 15px;
+  }
+  .boxCount, .boxYear {
+    margin-bottom: 2%;
+  }
+  .boxYear{
+    width: 80%;
+    margin: 10px auto;
+    flex-flow: row wrap;
+  }
+  .yearButton{
+    width: 200px;
+    margin: 5px 10px;
+  }
+
+  .boxPhotos{
+    column-count: 3;
+  }
 }

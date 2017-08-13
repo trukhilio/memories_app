@@ -19,9 +19,9 @@ class Page extends Component {
                         className={s.buttonPhoto}
                         title={
                             <div>
-                                <p className={s.photoText}>
+                                <h3 className={s.photoText}>
                                     Get Photos
-                                </p>
+                                </h3>
                                 <Image className={s.photo} src={srcLogo}/>
                             </div>}
                             onClick={getPhotos}/>

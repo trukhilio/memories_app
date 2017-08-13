@@ -58,7 +58,7 @@
   color: #ffffff;
   background-color: #3b5998;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
 
   &:hover{
     background-color: #8b9dc3;
@@ -94,7 +94,7 @@
     position: absolute;
     justify-content: flex-start;
   }
-  .appName{
+  .appName, .appNameWhite{
     top: 15%;
     font-size: 1.7em;
   }
@@ -115,7 +115,13 @@
   }
   .headContent{
     flex-direction: row;
-    justify-content: space-between;
+    width: 80%;
+  }
+  .logout{
+    flex-basis: 30%;
+    margin-left: 5%;
+    max-width: 250px;
+    font-size: 1.1em;
   }
 }
 
