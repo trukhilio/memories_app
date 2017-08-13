@@ -10,9 +10,9 @@ module.exports = {
         './src/index'
     ],
     output: {
-        path: path.join(__dirname, 'static'),
-        filename: 'bundle.js',
-        publicPath: '/static/'
+        path: './src',
+        publicPath: '/',
+        filename: 'bundle.js'
     },
     plugins: [
         new webpack.optimize.DedupePlugin(),
@@ -26,7 +26,8 @@ module.exports = {
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
             }
-        })
+        }),
+        new webpack.NoErrorsPlugin()
     ],
     module: {
         loaders: [
