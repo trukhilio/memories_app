@@ -10,9 +10,9 @@ module.exports = {
         './src/index'
     ],
     output: {
-        path: './src',
-        publicPath: '/',
-        filename: 'bundle.js'
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/static/'
     },
     plugins: [
         new webpack.optimize.DedupePlugin(),
