@@ -2,10 +2,13 @@
   "name": "memories_app",
   "version": "1.0.0",
   "description": "Humans brain - isn't safe place for storing of your memories.",
+  "engines": {
+    "node": "6.11.1"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "node node_modules/webpack/bin/webpack.js --display-error-details",
+    "build": "webpack",
     "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
   },
   "author": "",
