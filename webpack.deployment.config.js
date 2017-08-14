@@ -1,6 +1,5 @@
 let path = require('path');
 let webpack = require('webpack');
-let NpmInstallPlugin = require('npm-install-webpack-plugin');
 let autoprefixer = require('autoprefixer');
 let precss = require('precss');
 
@@ -10,9 +9,9 @@ module.exports = {
         './src/index'
     ],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'public'),
         filename: 'bundle.js',
-        publicPath: '/static/'
+        publicPath: '/public/'
     },
     plugins: [
         new webpack.optimize.DedupePlugin(),
@@ -26,8 +25,7 @@ module.exports = {
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
             }
-        }),
-        new webpack.NoErrorsPlugin()
+        })
     ],
     module: {
         loaders: [
