@@ -16,10 +16,10 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 
-app.use('/dist', express.static('dist'));
+app.use(express.static(__dirname));
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '/index.html'));
+app.get('*', function(req, res) {
+    res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
 app.listen(port, function(error) {
