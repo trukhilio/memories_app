@@ -9,9 +9,9 @@ module.exports = {
         './src/index'
     ],
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPath: '/public/'
+        publicPath: '/dist/'
     },
     plugins: [
         new webpack.optimize.DedupePlugin(),
@@ -47,7 +47,7 @@ module.exports = {
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
-                loader: 'file?name=public/fonts/[name].[ext]'
+                loader: 'file?name=fonts/[name].[ext]'
             },
             {
                 test: /\.(png|jpe?g|gif)$/,
