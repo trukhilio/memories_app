@@ -10,7 +10,7 @@
     "build": "SET 'NODE_ENV=production' && webpack --config ./webpack.prod.config.js --progress --colors",
     "start": "node ./app.js",
     "dev": "SET 'NODE_ENV=development' && node ./app.js",
-    "heroku-postbuild": "SET 'NODE_ENV=production' && webpack --config ./webpack.prod.config.js --progress --colors"
+    "heroku-postbuild": "webpack --config ./webpack.prod.config.js --progress --colors"
   },
   "author": "",
   "license": "ISC",
