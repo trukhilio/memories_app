@@ -2,7 +2,6 @@ let path = require('path');
 let webpack = require('webpack');
 let autoprefixer = require('autoprefixer');
 let precss = require('precss');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     devtool: 'source-map',
@@ -22,7 +21,6 @@ module.exports = {
                 warnings: true
             }
         }),
-        new ExtractTextPlugin("styles.css"),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
