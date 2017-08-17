@@ -41,11 +41,11 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loaders: ExtractTextPlugin.extract (
+                loaders: [
                     'isomorphic-style-loader',
                     'css-loader?modules&localIdentName=[name]_[local]_[hash:base64:3]',
                     'postcss-loader'
-                )
+                ]
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
