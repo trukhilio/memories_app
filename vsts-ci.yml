@@ -13,5 +13,5 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-  PS> .\test.ps1
+  powershell -executionpolicy bypass -File ".\test.ps1"
   displayName: 'npm install and build'
