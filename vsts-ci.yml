@@ -7,11 +7,11 @@ pool:
   vmImage: 'VS2017-Win2016'
 
 steps:
-- task: NodeTool@0
+- task: NodeTool@0 
   inputs:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
+  PS> .\test.ps1
   displayName: 'npm install and build'
