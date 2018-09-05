@@ -12,4 +12,4 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 - script: |
-  choco install meteor
+  npm run meteor
