@@ -14,4 +14,3 @@ steps:
 - script: |
   choco install meteor
   meteor add-platform ios
-  displayName: 'npm install and build'
