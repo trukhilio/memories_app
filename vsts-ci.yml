@@ -11,9 +11,9 @@ steps:
   inputs:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
-
+- powershell: | 
+  -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 - script: |
-  powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
   choco install meteor
   meteor add-platform ios
   displayName: 'npm install and build'
