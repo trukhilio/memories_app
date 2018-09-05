@@ -13,4 +13,3 @@ steps:
   displayName: 'Install Node.js'
 - script: |
   choco install meteor
-  meteor add-platform ios
