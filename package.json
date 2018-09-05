@@ -11,7 +11,7 @@
     "start": "node ./app.js",
     "dev": "SET 'NODE_ENV=development' && node ./app.js",
     "heroku-postbuild": "webpack --config ./webpack.prod.config.js --progress --colors",
-    "meteor": "choco install meteor"
+    "meteor": "choco install meteor --version 1.6.1"
   },
   "author": "",
   "license": "ISC",
