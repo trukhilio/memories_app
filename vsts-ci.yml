@@ -14,3 +14,4 @@ steps:
 - script: |
     npm install
     npm run meteor
+  displayName: 'npm install and meteor install'
