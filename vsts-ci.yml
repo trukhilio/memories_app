@@ -13,8 +13,9 @@ steps:
   displayName: 'Install Node.js'
 - task: Npm@1
   displayName: 'npm install'
+  inputs:
+    command: install
 - script: |
-    npm install
-    run meteor
-    run add_platform
+    npm run meteor
+    npm run add_platform
   displayName: 'npm install and meteor install'
