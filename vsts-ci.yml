@@ -16,8 +16,8 @@ steps:
   inputs:
     command: install
 - task: Npm@1
-displayName: NPM build
-inputs:
-  command: custom
-  verbose: false
-  customCommand: 'run meteor' # edit this to your needs
+  displayName: NPM build
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'run meteor' # edit this to your needs
