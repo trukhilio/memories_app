@@ -15,7 +15,9 @@ steps:
   displayName: 'npm install'
   inputs:
     command: install
-- script: |
-    npm run meteor
-    npm run add_platform
-  displayName: 'npm install and meteor install'
+- task: Npm@1
+displayName: NPM build
+inputs:
+  command: custom
+  verbose: false
+  customCommand: 'run meteor' # edit this to your needs
